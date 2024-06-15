@@ -1,0 +1,518 @@
+* {
+    font-family: GmarketSans;
+    font-size: normal;
+    font-weight: bold;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.intersecrtion {
+    background-color: black;
+    height: 6000px;
+    padding: 1px;
+}
+
+.animation {
+    padding: 1px;
+    margin-top: 1000px;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: all 2.5s;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.desc {
+    font-size: 1rem;
+    line-height: 1.3em;
+    font-weight: 200;
+}
+
+.category h2 {
+    font-size: 3rem;
+    margin: 20px;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+}
+li {
+    list-style: none;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "GmarketSans";
+    font-weight: 300;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot");
+    src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot?#iefix") format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "GmarketSans";
+    font-weight: 500;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot");
+    src: url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot?#iefix")
+            format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.ttf") format("truetype");
+    font-display: swap;
+}
+.container {
+    min-width: 1200px;
+}
+
+/* header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+}
+
+header img {
+    height: 21px;
+    height: 23px;
+    margin: 0 5px 0 5px;
+}
+
+header li a {
+    position: relative;
+    top: 0;
+    transition: top 0.3s ease;
+    text-align: center;
+}
+
+header li a:hover {
+    top: -3px;
+}
+
+header .tooltip-text {
+    display: none;
+    position: absolute;
+    bottom: -30px;
+    left: -20px;
+    width: 70px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 5px 0;
+    background: #f7e0d3;
+    color: #5f7eaf;
+}
+
+header a:hover .tooltip-text {
+    display: block;
+}
+
+/* loading */
+.loading-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 100;
+}
+
+.loading-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
+
+.loading-content p {
+    color: #000;
+    transform: translate(-50%, -50%);
+    animation: opacity 1s ease-in infinite;
+}
+
+.loading-content .loading {
+    font-size: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* home */
+#home {
+    background-color: #e2c3c7;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0 -120px;
+    height: 100vh;
+    position: relative;
+    padding: 1px;
+}
+
+#home .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#home .title h1 {
+    width: 600px;
+    height: 60px;
+    font-size: 55px;
+    margin-bottom: 1.3rem;
+    color: #5f7eaf;
+}
+
+#home .title p {
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* 스크롤 모양 위치 잡기 */
+#home .scroll {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    cursor: pointer;
+    font-size: 30px;
+    display: block;
+    padding-top: 60px;
+}
+
+/* 스크롤 모양 */
+#home .scroll a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30px;
+    height: 50px;
+    margin-left: -15px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+/* 스코롤 안에 원모양*/
+#home .scroll a span::before {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: #fff;
+    border-radius: 100%;
+    -webkit-animation: scrollud 2s infinite;
+    animation: scrollud 2s infinite;
+    box-sizing: border-box;
+}
+
+@-webkit-keyframes scrollud {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        -webkit-transform: translate(0, 20px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes scrollud {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        transform: translate(0, 20px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#home .scroll p {
+    font-size: 15px;
+}
+
+/* about */
+#about-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0 140px 0;
+    margin-bottom: 140px;
+}
+
+#about-profile h2 {
+    font-size: 40px;
+    color: #5f7eaf;
+    margin: 0 auto 100px;
+    display: inline-block;
+}
+
+.a-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.buttons-container button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.links-container {
+    flex-grow: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.links-container a {
+    margin-bottom: 10px;
+    color: #5f7eaf;
+    text-decoration: none;
+}
+
+/* favorite */
+#favorite {
+    background-color: #f7e0d3;
+    position: relative;
+    background-size: cover;
+    padding: 80px 0 140px 0;
+}
+#favorite h2 {
+    color: #5f7eaf;
+}
+
+#favorite .slide_warp {
+    width: 960px;
+    height: 450px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#favorite .slide_warp .slides {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-in-out;
+}
+
+#favorite .slide_warp .slides li:not(:last-child) {
+    position: relative;
+    float: left;
+    margin-right: 30px;
+}
+
+#favorite .slide_img_box {
+    width: 300px;
+    height: 300px;
+}
+
+#favorite .slide_img_box img {
+    width: 100%;
+    height: 100%;
+}
+
+#favorite .slide_text_box {
+    text-align: left;
+    margin: 20px 0;
+    height: 120px;
+}
+
+#favorite .slide_text_box .title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#favorite .slide_text_box .desc {
+    margin-top: 10px;
+}
+
+#favorite .controls .prev,
+#favorite .controls .next {
+    position: absolute;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    transform: translateY(-50);
+    top: 50%;
+}
+
+#favorite .controls .prev {
+    left: 100px;
+}
+
+#favorite .controls .next {
+    right: 100px;
+}
+
+/* footer */
+#footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #afafc8;
+}
+
+#footer h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-box {
+    width: 100%;
+    padding: 80px 0 70px 0;
+}
+.footer-box div {
+    display: inline-block;
+    margin: 35px;
+}
+.footer-box img {
+    width: 65px;
+}
+#footer h4 {
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+}
+
+#showcase {
+    min-height: 600px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.member_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    padding-top: 30px;
+    overflow-x: auto;
+}
+
+.member_container a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.card {
+    width: 250px;
+    flex-direction: column;
+}
+.card-img {
+    height: 333px;
+    display: flex;
+}
+
+.card-head {
+    height: 50px;
+    background-color: transparent;
+    border-bottom: 2px solid #333333;
+    line-height: 50px;
+}
+.card-footer {
+    height: 50px;
+    background-color: transparent;
+    line-height: 50px;
+    border-bottom: 2px solid #333333;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    transition-duration: 0.5s;
+    transform-box: content-box;
+}
+
+@keyframes grow {
+    from {
+        transform: translateY(1.5em);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes grow-out {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(1.5em);
+    }
+}
